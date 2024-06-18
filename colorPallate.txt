@@ -1,0 +1,6 @@
+darkToolbarBackground=""
+darkBackground=""
+lightToolbarBackground=""
+lightBackground="bg-[#fefeff]"
+buttonDarkBackground="#101218"
+cardBackground="#15171C"

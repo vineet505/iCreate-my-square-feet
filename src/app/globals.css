@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.ant-btn {
+  background-color: #f04c00; /* Green */
+  color: white;
+}
+
+.ant-btn-primary {
+  background-color: #262e2c; /* Blue */
+  color: white;
+}
+/* Also do the hover classes */
+.ant-btn:hover {
+  background-color: #f04c00; /* Green */
+  color: white;
+}
+
+.ant-btn-primary:hover {
+  background-color: #262e2c; /* Blue */
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 5px; 
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f5f5f5; 
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #999; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #666; 
+}
+
+@media (prefers-color-scheme: dark) {
+    ::-webkit-scrollbar {
+    width: 5px; 
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #b9b9b9; 
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #808080; 
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #999; 
+  }
+}

@@ -1,0 +1,5 @@
+v20.9.0
+NEXTAUTH_URL=http://localhost:3000
+
+NEXTAUTH_SECRET=tQ3rJGzrScRSh6UhrHak3kAEyXrBIjxWIFQEg7+uuQA=
+    // "next": "13.4.19",
