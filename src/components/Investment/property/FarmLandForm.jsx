@@ -16,9 +16,9 @@ import {
   listedByOptions,
   listingTypeOptions,
   FarmLandPropertyTypeOptions,
-  furnishingOptions,
   possessionTypeOptions,
   facingOptions,
+  listedByLotsOptions,
 } from "@/validationSchema/InvestmentPropertySchema";
 import { PropertyFormComponent } from "../PropertyFormComponent";
 
@@ -64,12 +64,14 @@ export const FarmLandForm = () => {
       region_id: regionList[parseInt(values.region_id)].value,
       listing_type: listingTypeOptions[parseInt(values.listing_type)].value,
       listed_by: listedByOptions[parseInt(values.listed_by)].value,
-      property_type: FarmLandPropertyTypeOptions[parseInt(values.property_type)].value,
+      property_type:
+        FarmLandPropertyTypeOptions[parseInt(values.property_type)].value,
       length: values.length,
       breadth: values.breadth,
       plot_area: values.plot_area,
       facing: facingOptions[parseInt(values.facing)].value,
-      possession_type: possessionTypeOptions[parseInt(values.possession_type)].value,
+      possession_type:
+        possessionTypeOptions[parseInt(values.possession_type)].value,
       description: values.description,
       project_title: values.project_title,
       price: values.price,
@@ -80,6 +82,10 @@ export const FarmLandForm = () => {
         longitude: location.lng,
       },
       roi_percentage: values.roi_percentage,
+      property_posting_type:
+        listedByLotsOptions[parseInt(values.listed_by_lots)].value,
+      share_size: `${values.slot_size}`,
+      share_quantity: values.quantity,
     };
     setIsLoading(true);
     setTimeout(async () => {

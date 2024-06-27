@@ -3,9 +3,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import {
-  GetRegionListRequest
-} from "@/lib/Region/RegionRequestHandler";
+import { GetRegionListRequest } from "@/lib/Region/RegionRequestHandler";
 import { AddPropertyRequest } from "@/lib/Investment/InvestmentpropertyHandler";
 import {
   GetRegionListUrl,
@@ -23,6 +21,7 @@ import {
   furnishingOptions,
   possessionTypeOptions,
   facingOptions,
+  listedByLotsOptions,
 } from "@/validationSchema/InvestmentPropertySchema";
 import { PropertyFormComponent } from "../PropertyFormComponent";
 
@@ -85,6 +84,10 @@ export const ResidentialPropertyForm = () => {
         possessionTypeOptions[parseInt(values.possession_type)].value,
       description: values.description,
       project_title: values.project_title,
+      property_posting_type:
+        listedByLotsOptions[parseInt(values.listed_by_lots)].value,
+      share_size: `${values.slot_size}`,
+      share_quantity: values.quantity,
       price: values.price,
       video_url: values.video_url,
       address: values.address,

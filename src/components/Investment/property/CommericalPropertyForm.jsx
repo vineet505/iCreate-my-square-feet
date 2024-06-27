@@ -5,7 +5,10 @@ import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { GetRegionListRequest } from "@/lib/Region/RegionRequestHandler";
 import { AddPropertyRequest } from "@/lib/Investment/InvestmentpropertyHandler";
-import { GetRegionListUrl, AddCommercialPropertyUrl } from "@/static/ApiEndpoints";
+import {
+  GetRegionListUrl,
+  AddCommercialPropertyUrl,
+} from "@/static/ApiEndpoints";
 import { toastHandler } from "@/components/Toaster/ToasterHandler";
 import LoadingSpinner from "@/components/Loading/LoadingSpinner";
 import {
@@ -18,6 +21,7 @@ import {
   furnishingOptions,
   possessionTypeOptions,
   facingOptions,
+  listedByLotsOptions,
 } from "@/validationSchema/InvestmentPropertySchema";
 import { PropertyFormComponent } from "../PropertyFormComponent";
 
@@ -82,6 +86,11 @@ export const CommercialPropertyForm = () => {
         longitude: location.lng,
       },
       roi_percentage: values.roi_percentage,
+      property_posting_type:
+        listedByLotsOptions[parseInt(values.listed_by_lots || 0)].value ||
+        "custom_sqft",
+      share_size: `${values.slot_size}` || "",
+      share_quantity: values.quantity || 0,
     };
     setIsLoading(true);
     setTimeout(async () => {

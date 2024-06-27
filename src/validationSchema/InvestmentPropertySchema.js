@@ -10,6 +10,12 @@ export const listedByOptions = [
   { value: "broker", label: "Broker" },
   { value: "owner", label: "Owner" },
 ];
+export const listedByLotsOptions = [
+  { value: "custom_sqft", label: "Squre Feet" },
+  { value: "custom_lots", label: "Lot" },
+  { value: "custom_fraction", label: "Fraction" },
+  { value: "single_user", label: "Single User" },
+];
 
 export const propertyTypeOptions = [
   { value: "apartment", label: "Apartment" },
@@ -71,6 +77,9 @@ const ResidentialPropertyInitialValues = {
   video_url: "",
   address: "",
   roi_percentage: "",
+  slot_size: "",
+  quantity: 0,
+  property_posting_type: null,
 };
 
 const ResidentialKeyAndLabels = {
@@ -101,6 +110,7 @@ const ResidentialKeyAndLabels = {
       type: "select",
       options: listedByOptions,
     },
+
     {
       key: "property_type",
       label: "Property Type",
@@ -124,6 +134,12 @@ const ResidentialKeyAndLabels = {
       label: "Possession Type",
       type: "select",
       options: possessionTypeOptions,
+    },
+    {
+      key: "listed_by_lots",
+      label: "Listed By lots",
+      type: "select",
+      options: listedByLotsOptions,
     },
   ],
   number: [
@@ -213,6 +229,9 @@ const CommercialPropertyInitialValues = {
   video_url: "",
   address: "",
   roi_percentage: "",
+  slot_size: "",
+  quantity: 0,
+  property_posting_type: "",
 };
 
 const CommercialKeyAndLabels = {
@@ -274,6 +293,12 @@ const CommercialKeyAndLabels = {
       type: "select",
       options: possessionTypeOptions,
     },
+    {
+      key: "listed_by_lots",
+      label: "Listed By lots",
+      type: "select",
+      options: listedByLotsOptions,
+    },
   ],
 
   number: [
@@ -297,10 +322,10 @@ const CommercialKeyAndLabels = {
 
 const FarmLandPropertyRequestSchema = object({
   is_investment_property: boolean().default(false),
-  region_id: string().required(),
-  listing_type: string().required("Select Listing Type."),
+  region_id: string(),
+  listing_type: string(),
   property_type: string(),
-  listed_by: string().required("Select Listed By."),
+  listed_by: string(),
   length: number().positive(),
   breadth: number().positive(),
   plot_area: number().positive(),
@@ -331,6 +356,9 @@ const FarmLandPropertyInitialValues = {
   video_url: "",
   address: "",
   roi_percentage: "",
+  slot_size: "",
+  quantity: 0,
+  property_posting_type: "",
 };
 
 const FarmLandKeyAndLabels = {
@@ -380,6 +408,12 @@ const FarmLandKeyAndLabels = {
       label: "Possession Type",
       type: "select",
       options: possessionTypeOptions,
+    },
+    {
+      key: "listed_by_lots",
+      label: "Listed By lots",
+      type: "select",
+      options: listedByLotsOptions,
     },
   ],
 
